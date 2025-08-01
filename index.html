@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Para o Amor da Minha Vida</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+      color: #fff;
+      text-align: center;
+    }
+
+    .tela-inicial {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .tela-inicial h1 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      color: #ff66b2;
+    }
+
+    .btn-amor {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background: #ff66b2;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-amor:hover {
+      background: #e60073;
+    }
+
+    .conteudo {
+      display: none;
+      padding: 20px;
+    }
+
+    .titulo-carrossel {
+      font-size: 2em;
+      color: #ff66b2;
+      margin-bottom: 20px;
+    }
+
+    .carrossel-container {
+      position: relative;
+      width: 90%;
+      max-width: 600px;
+      margin: 20px auto 50px auto;
+      overflow: hidden;
+    }
+
+    .carrossel-titulo-em-foto {
+      position: absolute;
+      top: 15px;
+      width: 100%;
+      color: #fff;
+      font-size: 1.5em;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px black;
+    }
+
+    .carrossel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carrossel img {
+      width: 100%;
+      flex: 0 0 100%;
+      border-radius: 10px;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .seta {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 0, 127, 0.8);
+      color: white;
+      border: none;
+      padding: 1px 14px;
+      cursor: pointer;
+      font-size: 2em;
+      z-index: 1;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+
+    .seta:hover {
+      background: rgba(255, 0, 127, 1);
+    }
+
+    .seta.esquerda {
+      left: 10px;
+    }
+
+    .seta.direita {
+      right: 10px;
+    }
+
+    .linha-do-tempo {
+      margin: 60px auto;
+      width: 90%;
+      max-width: 800px;
+      position: relative;
+    }
+
+    .linha {
+      height: 4px;
+      background-color: #ff66b2;
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      z-index: 0;
+    }
+
+    .evento {
+      position: relative;
+      display: inline-block;
+      text-align: center;
+      width: 22%;
+      margin: 0 1%;
+      z-index: 1;
+    }
+
+    .evento .ponto {
+      width: 14px;
+      height: 14px;
+      background-color: #ff66b2;
+      border-radius: 50%;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .evento p {
+      margin-top: 10px;
+      font-size: 0.9em;
+    }
+
+    .declaracao {
+      margin-top: 50px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.2em;
+      line-height: 1.6em;
+    }
+
+    /* Estilo do botão coração pulsante */
+    #botao-coracao {
+      font-size: 3em;
+      cursor: pointer;
+      margin: 30px 0;
+      user-select: none;
+      transition: transform 0.3s ease;
+    }
+
+    footer {
+      margin-top: 80px;
+      padding: 20px;
+      color: #ff66b2;
+      font-size: 1em;
+      border-top: 1px solid #ff66b280;
+    }
+  </style>
+</head>
+<body>
+  <div class="tela-inicial" id="telaInicial">
+    <h1>Há algo aqui... mas você precisa provar que me ama 💌</h1>
+    <button class="btn-amor" onclick="mostrarConteudo()">Clica aqui se você me ama 💘</button>
+  </div>
+
+  <div class="conteudo" id="conteudo">
+    <h2 class="titulo-carrossel">Momentos que moram no meu coração 🥹</h2>
+
+    <div class="carrossel-container">
+      <div class="carrossel-titulo-em-foto">Nosso Amor em Imagens</div>
+
+      <button class="seta esquerda" onclick="moverCarrossel(-1)">&#10094;</button>
+
+      <div class="carrossel" id="carrossel">
+        <img src="assets/IMG1.webp" alt="Foto 1" />
+        <img src="assets/IMG2.jpg" alt="Foto 2" />
+        <img src="assets/IMG3.webp" alt="Foto 3" />
+        <img src="assets/IMG4.webp" alt="Foto 4" />
+        <img src="assets/IMG5.webp" alt="Foto 5" />
+        <img src="assets/IMG6.webp" alt="Foto 6" />
+      </div>
+
+      <button class="seta direita" onclick="moverCarrossel(1)">&#10095;</button>
+    </div>
+
+    <div class="linha-do-tempo">
+      <div class="linha"></div>
+      <div class="evento">
+        <div class="ponto"></div>
+        <p>Out/2024<br />Nos conhecemos</p>
+      </div>
+      <div class="evento">
+        <div class="ponto"></div>
+        <p>Nov/2024<br />Pedido de namoro</p>
+      </div>
+      <div class="evento">
+        <div class="ponto"></div>
+        <p>Jun/2025<br />primeiro "eu te amo!"</p>
+      </div>
+      <div class="evento">
+        <div class="ponto"></div>
+        <p>Ago/2025<br />E aqui estamos... ❤️</p>
+      </div>
+    </div>
+
+    <div class="declaracao">
+      <p>
+        Meu amor, nada no mundo poderia me preparar para o que você significa pra mim. Desde o momento em que você entrou na minha vida, tudo mudou. Seu sorriso virou meu lugar favorito, sua voz é a minha calma e o seu amor é o que dá sentido aos meus dias. Eu te amo mais do que palavras podem expressar. Feliz Dia dos Namorados — o primeiro de muitos que ainda vamos viver juntinhos. 💖
+      </p>
+    </div>
+
+    <!-- Botão de coração pulsante -->
+    <div id="botao-coracao">❤️‍🔥</div>
+
+    <!-- Container para os corações animados -->
+    <div id="container-coracoes" style="position: fixed; bottom: 100px; left: 0; right: 0; pointer-events: none; overflow: visible;"></div>
+
+    <footer>
+      Feito com amor por Bruno 💘
+    </footer>
+  </div>
+
+  <script>
+    function mostrarConteudo() {
+      document.getElementById('telaInicial').style.display = 'none';
+      document.getElementById('conteudo').style.display = 'block';
+
+      const audio = document.createElement('audio');
+      audio.src = 'BK - Planos.mp3';
+      audio.autoplay = true;
+      audio.loop = true;
+      audio.type = 'audio/mp3';
+      document.body.appendChild(audio);
+    }
+
+    let indiceAtual = 0;
+    const carrossel = document.getElementById('carrossel');
+    const total = carrossel.children.length;
+
+    function moverCarrossel(direcao) {
+      indiceAtual = (indiceAtual + direcao + total) % total;
+      atualizarCarrossel();
+    }
+
+    function atualizarCarrossel() {
+      carrossel.style.transform = `translateX(-${indiceAtual * 100}%)`;
+    }
+
+    setInterval(() => {
+      indiceAtual = (indiceAtual + 1) % total;
+      atualizarCarrossel();
+    }, 5000);
+
+    // Código do coração pulsante com animação de corações voando
+    const botaoCoracao = document.getElementById('botao-coracao');
+    const containerCoracoes = document.getElementById('container-coracoes');
+
+    function criarCoracao() {
+      const coracao = document.createElement('div');
+      coracao.textContent = '❤️';
+      coracao.style.position = 'fixed';
+      coracao.style.fontSize = (Math.random() * 20 + 20) + 'px';
+      coracao.style.left = (window.innerWidth * Math.random()) + 'px';
+      coracao.style.bottom = '100px';
+      coracao.style.opacity = 1;
+      coracao.style.pointerEvents = 'none';
+      coracao.style.userSelect = 'none';
+      coracao.style.willChange = 'transform, opacity';
+
+      containerCoracoes.appendChild(coracao);
+
+      let posY = 100;
+      let opacity = 1;
+      const velocidade = Math.random() * 2 + 1;
+      const direcaoX = (Math.random() - 0.5) * 2; // entre -1 e 1
+
+      function animar() {
+        posY += velocidade;
+        opacity -= 0.02;
+        coracao.style.transform = `translate(${direcaoX * 20}px, -${posY}px) scale(1)`;
+        coracao.style.opacity = opacity;
+        if (opacity <= 0) {
+          coracao.remove();
+        } else {
+          requestAnimationFrame(animar);
+        }
+      }
+      animar();
+    }
+
+    botaoCoracao.addEventListener('click', () => {
+      for (let i = 0; i < 20; i++) {
+        setTimeout(criarCoracao, i * 100);
+      }
+    });
+
+    // Animação de pulsar do próprio botão
+    setInterval(() => {
+      botaoCoracao.style.transform = 'scale(1.2)';
+      setTimeout(() => (botaoCoracao.style.transform = 'scale(1)'), 300);
+    }, 1500);
+  </script>
+</body>
+</html>
